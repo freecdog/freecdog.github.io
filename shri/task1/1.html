@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="jTableApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="1.css">
+</head>
+<body ng-controller="TableController">
+    <div class="table-responsive">
+        <table id="flightTable" class="table table-striped table-hover header-fixed">
+
+            <thead>
+                <th>тип рейса</th>
+                <th>номер рейса</th>
+                <th>авиакомпания</th>
+                <th>логотип авиакомпании</th>
+                <th>тип воздушного судна</th>
+                <th>аэропорт назначения</th>
+                <th>плановое время вылета или прилёта</th>
+                <th>статус рейса</th>
+                <th>примечание</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="flight in flights track by $index">
+                    <td class="text-center">
+                        <span class="glyphicon" ng-class="{'glyphicon-arrow-down': flight.src=='a', 'glyphicon-arrow-up': flight.src=='d'}"></span>
+                    </td>
+                    <td class="text-right">
+                        <span>{{flight.number}}</span>
+                    </td>
+                    <td>
+                        <span>{{flight.company}}</span>
+                    </td>
+                    <td class="text-center">
+                        <span>LOGO</span>
+                    </td>
+                    <td class="text-right">
+                        <span>{{flight.aircraft_type_code}}</span>
+                    </td>
+                    <td>
+                        <span>{{flight.airport}}</span>
+                    </td>
+                    <td class="text-right">
+                        <span>{{flight.src == 'a' ? flight.arrival_time.scheduled : flight.departure_time.scheduled}}</span>
+                    </td>
+                    <td>
+                        <span>{{flight.status}}</span>
+                    </td>
+                    <td>
+                        <span>NOTES</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="http://yastatic.net/angularjs/1.3.16/angular.min.js"></script>
+    <script src="http://yastatic.net/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="pulkovoArr.js"></script>
+    <script src="pulkovoDep.js"></script>
+    <!--<script src="pulkovoArrSmall.js"></script>-->
+    <!--<script src="pulkovoDepSmall.js"></script>-->
+    <script src="1.js"></script>
+</body>
+</html>
