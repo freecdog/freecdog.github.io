@@ -76,6 +76,7 @@
 
             //getDataFiles();
             tryVK();
+            initVK();
         }
 
         function tryVK(){
