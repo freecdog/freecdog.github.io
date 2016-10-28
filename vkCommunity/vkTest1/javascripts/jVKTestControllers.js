@@ -89,11 +89,19 @@
         function initVK(){
             VK.init(function(a,b,c){
                 console.log('initialised', a, b, c);
+
+                VK.callMethod("showGroupSettingsBox", 2);
+                VK.addEventListener('onGroupSettingsChanged', onGroupSettingsChanged);
             }, function(a, b, c){
                 console.log('initialisation has failed', a, b, c);
 
             }, '5.59');
         }
+
+        function onGroupSettingsChanged(a,b,c){
+            console.log('onGroupSettingsChanged', a, b, c);
+        }
+
 
         function getDataFiles(){
             $http({
