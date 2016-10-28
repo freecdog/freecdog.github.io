@@ -92,6 +92,7 @@
 
                 VK.callMethod("showGroupSettingsBox", 2);
                 VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
+                VK.addCallback('onLocationChanged', onLocationChanged);
             }, function(a, b, c){
                 console.log('initialisation has failed', a, b, c);
 
@@ -100,6 +101,10 @@
 
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
+        }
+
+        function onLocationChanged(a,b,c){
+            console.log('onLocationChanged', a, b, c);
         }
 
 
