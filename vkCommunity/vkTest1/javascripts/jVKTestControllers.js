@@ -91,7 +91,7 @@
                 console.log('initialised', a, b, c);
 
                 VK.callMethod("showGroupSettingsBox", 2);
-                VK.addEventListener('onGroupSettingsChanged', onGroupSettingsChanged);
+                VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
             }, function(a, b, c){
                 console.log('initialisation has failed', a, b, c);
 
