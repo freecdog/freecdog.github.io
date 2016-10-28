@@ -25,6 +25,11 @@
             self.searchString = "searchString is here";
 
             self.data = jVKRequest.data;
+
+            self.url = jVKRequest.url;
+
+            self.VK = VK !== undefined;
+
         }
 
         function loadDataFile(fileObject){
@@ -61,12 +66,32 @@
 
     jVKTestControllers.factory('jVKRequest', ['$http', function ($http) {
 
+        var self = this;
         var data = [];
 
         init();
 
         function init(){
-            getDataFiles();
+            console.log("jVKRequest is here");
+
+            //getDataFiles();
+            tryVK();
+        }
+
+        function tryVK(){
+            var url = window.location.href;
+            self.url = url;
+            var addressArr = url.split("/");
+
+        }
+
+        function initVK(){
+            VK.init(function(a,b,c){
+                console.log('initialised', a, b, c);
+            }, function(a, b, c){
+                console.log('initialisation has failed', a, b, c);
+
+            }, '5.59');
         }
 
         function getDataFiles(){

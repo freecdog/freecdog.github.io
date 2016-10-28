@@ -7,7 +7,8 @@ requirejs.config({
         angular: 'angular',
         'bootstrapUI': 'ui-bootstrap-tpls-0.12.0',
         jVKTestApp: 'jVKTestApp',
-        jVKTestControllers: 'jVKTestControllers'
+        jVKTestControllers: 'jVKTestControllers',
+        VK: 'https://vk.com/js/api/xd_connection.js?2'
     },
     shim: {
         'angular': {
@@ -21,14 +22,17 @@ requirejs.config({
         },
         'jVKTestControllers': {
             deps: ['jVKTestApp']
+        },
+        'VK': {
+            exports: 'VK'
         }
     }
 });
 
 requirejs(
-    ['angular', 'jVKTestApp', 'jVKTestControllers', 'bootstrapUI'],
-    function(angular, jVKTestApp, jVKTestControllers, bootstrapUI) {
-        console.log("vk test view bootstrap is starting", angular, jVKTestApp, jVKTestControllers, bootstrapUI);
+    ['angular', 'jVKTestApp', 'jVKTestControllers', 'bootstrapUI', 'VK'],
+    function(angular, jVKTestApp, jVKTestControllers, bootstrapUI, VK) {
+        console.log("vk test view bootstrap is starting", angular, jVKTestApp, jVKTestControllers, bootstrapUI, VK);
 
         // init angular application (instead of ng-app directive in view)
         angular.element(document).ready(function() {

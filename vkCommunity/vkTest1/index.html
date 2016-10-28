@@ -11,6 +11,10 @@
         <h1>Can you see me?</h1>
         <div ng-controller="jVKRequestController as vkRequest" ng-show="vkRequest.visible">
             <input ng-model="vkRequest.searchString" type="text" class="form-control" placeholder="Search">
+            <br>
+            <input ng-model="vkRequest.url" type="text" class="form-control" placeholder="url" size="100">
+            <br>
+            <input ng-model="vkRequest.VK" type="text" class="form-control" placeholder="VK" size="20">
         </div>
     </div>
 </body>
