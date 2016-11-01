@@ -82,9 +82,8 @@
         function tryVK(){
             var url = window.location.href;
             self.url = url;
-            console.log("url", url);
             var addressArr = url.split("/");
-            console.log("addressArr", addressArr);
+            self.addressArr = addressArr;
 
         }
 
@@ -104,6 +103,7 @@
 
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
+            console.log('self.addressArr', self.addressArr);
 
             var r = VK.api("audio.get", {
                 need_user: 1
