@@ -83,7 +83,7 @@
             var url = window.location.href;
             self.url = url;
             var addressArr = url.split("/");
-            console.warn("addressArr", addressArr);
+            console.log("addressArr", addressArr);
 
         }
 
