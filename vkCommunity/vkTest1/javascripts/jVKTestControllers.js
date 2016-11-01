@@ -105,6 +105,8 @@
 
             var r = VK.api("audio.get", {
                 need_user: 1
+            }, function(a,b,c){
+                console.log("audio.get", a, b, c);
             });
             console.log(r);
         }
