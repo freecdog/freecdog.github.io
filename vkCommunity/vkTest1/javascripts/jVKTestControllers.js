@@ -90,8 +90,11 @@
             VK.init(function(a,b,c){
                 console.log('initialised', a, b, c);
 
-                VK.callMethod("showGroupSettingsBox", 2);
-                VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
+                //VK.callMethod("showGroupSettingsBox", 2);
+                //VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
+
+                VK.callMethod("audio.get");
+
                 VK.addCallback('onLocationChanged', onLocationChanged);
             }, function(a, b, c){
                 console.log('initialisation has failed', a, b, c);
