@@ -85,6 +85,26 @@
             var addressArr = url.split("/");
             self.addressArr = addressArr;
 
+            self.params = parseResponse(addressArr);
+        }
+
+        function parseResponse(addressArr){
+            var lastParam = addressArr[addressArr.length-1];
+            var arr = lastParam.split("&");
+            var paramList = ["api_id", "api_settings", "viewer_id", "viewer_type", "sid", "secret", "access_token",
+                "user_id", "group_id", "is_app_user", "auth_key", "language", "parent_language", "ad_info",
+                "is_secure", "ads_app_id", "api_result", "referrer", "lc_name", "sign", "hash"];
+            var params = {};
+            for (var i = 0; i < arr.length; i++){
+                for (var j = 0; j < paramList.length; j++){
+                    if (arr[i].indexOf(paramList[j]) == 0){
+                        var paramValue = arr[i].substr( arr[i].indexOf("=")+1 );
+                        params[ paramList[j] ] = paramValue;
+                        break;
+                    }
+                }
+            }
+            return params;
         }
 
         function initVK(){
@@ -104,6 +124,7 @@
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
             console.log('self.addressArr', self.addressArr);
+            console.log('self.params', self.params);
 
             var r = VK.api("audio.get", {
                 need_user: 1
