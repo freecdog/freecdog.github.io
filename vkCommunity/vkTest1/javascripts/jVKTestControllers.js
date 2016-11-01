@@ -83,6 +83,7 @@
             var url = window.location.href;
             self.url = url;
             var addressArr = url.split("/");
+            console.warn("addressArr", addressArr);
 
         }
 
@@ -103,7 +104,7 @@
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
 
-            var r = VK.Api("audio.get", {
+            var r = VK.api("audio.get", {
                 need_user: 1
             }, function(a,b,c){
                 console.log("audio.get", a, b, c);
