@@ -103,7 +103,7 @@
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
 
-            var r = VK.api("audio.get", {
+            var r = VK.Api("audio.get", {
                 need_user: 1
             }, function(a,b,c){
                 console.log("audio.get", a, b, c);
