@@ -90,10 +90,8 @@
             VK.init(function(a,b,c){
                 console.log('initialised', a, b, c);
 
-                //VK.callMethod("showGroupSettingsBox", 2);
-                //VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
-
-                VK.callMethod("audio.get");
+                VK.callMethod("showGroupSettingsBox", 0+2+8);
+                VK.addCallback('onGroupSettingsChanged', onGroupSettingsChanged);
 
                 VK.addCallback('onLocationChanged', onLocationChanged);
             }, function(a, b, c){
@@ -104,6 +102,9 @@
 
         function onGroupSettingsChanged(a,b,c){
             console.log('onGroupSettingsChanged', a, b, c);
+
+            var r = VK.callMethod("audio.get");
+            console.log(r);
         }
 
         function onLocationChanged(a,b,c){
