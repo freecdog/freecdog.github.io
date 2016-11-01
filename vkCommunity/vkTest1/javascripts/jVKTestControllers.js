@@ -32,36 +32,6 @@
 
         }
 
-        function loadDataFile(fileObject){
-            //console.warn(fileObject);
-
-            self.visible = false;
-            $rootScope.$broadcast('loadingChanged', {visible: true});
-
-            // TODO loading bar (0... in progress... 100%)
-            $http({
-                method: 'GET',
-                url: '/memout' + fileObject.path
-            }).then(function successCallback(response) {
-                console.warn("response", response);
-                angular.extend(data, response.data);
-
-                console.warn("Datatone", data);
-
-                $rootScope.$broadcast('dataHaveBeenLoaded');
-                $rootScope.$broadcast('loadingChanged', {visible: false});
-
-            }, function errorCallback(response) {
-                self.visible = true;
-                $rootScope.$broadcast('loadingChanged', {visible: false});
-
-                console.error(response);
-            });
-
-
-        }
-        self.loadDataFile = loadDataFile;
-
     }]);
 
     jVKTestControllers.factory('jVKRequest', ['$http', function ($http) {
